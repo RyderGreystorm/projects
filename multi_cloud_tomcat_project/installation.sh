@@ -1,5 +1,24 @@
 #!/bin/bash
 
+################################################################################
+# Script Name:    installation.sh
+# Description:    This script installs maven and apache tomcat version 9.0.65
+#                 which is required for this project
+#
+# Author:         Godbless Biekro
+# Date Created:   2024-11-07
+# Last Modified:  2020-11-11
+# Version:        1.0.1
+# Usage:          ./installation.sh
+# Notes:          Requires sudo privileges.
+#                 Tested on Ubuntu 20.04 LTS.
+# Dependencies:   wget, apt, systemd
+################################################################################
+
+# Exit on error
+set -e
+
+# Enabling debugging for troubleshooting
 set -x
 
 # Installing Maven
