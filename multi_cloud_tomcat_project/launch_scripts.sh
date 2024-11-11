@@ -8,7 +8,7 @@
 # Author:         Godbless Biekro
 # Date Created:   2024-11-07
 # Last Modified:  2020-11-11
-# Version:        1.0.2
+# Version:        1.0.3
 # Usage:          ./launch_script.sh
 # Notes:          Requires sudo privileges.
 #                 Tested on Ubuntu 20.04 LTS.
