@@ -21,15 +21,15 @@ set -e
 # Enabling debugging for troubleshooting
 set -x
 
+repo_url=$1
+repo_name=$(basename -s .git "$repo_url")
+
 # Function Definitions
 # ------------------------------------------------------------------------------
 # Description: Pull java code form project repo
 
 
 pull_code() {
-    local repo_url=$1
-    local repo_name=$(basename -s .git "$repo_url")
-
     echo "Checking if the repository $repo_name exists..."
     # Check if the repo directory already exists
     if [ -d "$repo_name" ]; then
@@ -58,7 +58,7 @@ tomcat_manager() {
     sudo rm -rf /opt/tomcat/webapps/ROOT.war
 
     # Copy the .war file to the webapps directory as ROOT.war and restart Tomcat
-    sudo cp target/*.war /opt/tomcat/webapps/ROOT.war
+    sudo cp repo_name/target/*.war /opt/tomcat/webapps/ROOT.war
 
     # Restart and check the status of the Tomcat service
     sudo systemctl restart tomcat
@@ -68,8 +68,8 @@ tomcat_manager() {
 
 #Description: Clean up
 clean_up() {
-    local repo_url=$1
-    local repo_name=$(basename -s .git "$repo_url")
+    repo_url=$1
+    repo_name=$(basename -s .git "$repo_url")
     sudo rm -rf ~/"$repo_name"
 }
 
