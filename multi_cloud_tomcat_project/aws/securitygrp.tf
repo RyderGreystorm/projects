@@ -30,15 +30,6 @@ resource "aws_security_group_rule" "allow_http_ipv4" {
   security_group_id = aws_security_group.petclinic-sg.id
 }
 
-# Ingress Rule for IPv6 (Allow TCP traffic on port 8080 from the VPC IPv6 CIDR block)
-resource "aws_security_group_rule" "allow_tls_ipv6" {
-  type         = "ingress"
-  from_port    = 8080
-  to_port      = 8080
-  protocol     = "tcp"
-  ipv6_cidr_blocks = ["::0/0"]
-  security_group_id = aws_security_group.petclinic-sg.id
-}
 
 # Egress Rule for IPv4 (Allow all outbound traffic to any destination)
 resource "aws_security_group_rule" "allow_all_traffic_ipv4" {
