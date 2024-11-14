@@ -27,13 +27,17 @@ variable "USER" {
 }
 
 variable "PUB_KEY" {
-  default = "multikey.pub"
+  default = "./aws/multikey.pub"
 }
 
 variable "PRIV_KEY" {
-  default = "multikey"
+  default = "./aws/multikey"
 }
 
 variable "MY_IP" {
   default = "173.21.193.194/32"
+}
+
+variable "REPO_URL" {
+  default = "https://github.com/jaiswaladi246/Petclinic.git"
 }
