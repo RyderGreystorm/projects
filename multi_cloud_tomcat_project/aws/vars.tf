@@ -34,3 +34,6 @@ variable "PRIV_KEY" {
   default = "multikey"
 }
 
+variable "MY_IP" {
+  default = "173.21.193.194/32"
+}

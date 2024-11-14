@@ -3,3 +3,4 @@ aws/multikey.pub
 .terraform
 .terraform.lock.hcl
 .gitignore
+terraform.tfstate
