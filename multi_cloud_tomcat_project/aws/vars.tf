@@ -35,7 +35,7 @@ variable "PRIV_KEY" {
 }
 
 variable "MY_IP" {
-  default = "173.21.193.194/32"
+  default = "173.19.82.157/32"
 }
 
 variable "REPO_URL" {

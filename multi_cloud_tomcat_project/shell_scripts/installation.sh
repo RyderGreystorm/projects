@@ -7,7 +7,7 @@
 #
 # Author:         Godbless Biekro
 # Date Created:   2024-11-07
-# Last Modified:  2020-11-11
+# Last Modified:  2024-11-11
 # Version:        1.0.1
 # Usage:          ./installation.sh
 # Notes:          Requires sudo privileges.
@@ -21,9 +21,10 @@ set -e
 # Enabling debugging for troubleshooting
 set -x
 
+
 # Installing Maven
-sudo apt update
-sudo apt install maven -y
+sudo apt-get update -y
+sudo apt-get install maven -y
 
 echo "Checking installation of Maven"
 mvn -version
@@ -37,16 +38,21 @@ java -version
 sleep 2 
 
 # Create a tomcat user without a home directory for security reasons
-sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
+if ! id "tomcat" &>/dev/null; then
+    echo "Creating tomcat user"
+    sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
+else
+    echo "Tomcat user already exists"
+fi
 
 # Downloading the Tomcat binary
+sudo mkdir -p /opt/tomcat
 wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz
-sudo mkdir /opt/tomcat
 sudo tar -xvzf apache-tomcat-9.0.65.tar.gz -C /opt/tomcat --strip-components=1
 
 # Setting permissions for Tomcat
 sudo chown -R tomcat: /opt/tomcat
-sudo chmod -R 755 /opt/tomcat
+sudo chmod -R 775 /opt/tomcat
 
 # Create the systemd service file for Tomcat
 cat <<EOF | sudo tee /etc/systemd/system/tomcat.service > /dev/null
@@ -80,4 +86,3 @@ sudo systemctl daemon-reload
 # Start and enable Tomcat
 sudo systemctl start tomcat
 sudo systemctl enable tomcat
-
