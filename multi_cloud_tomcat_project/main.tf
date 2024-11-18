@@ -14,6 +14,10 @@ terraform {
   }
 }
 
+provider "azurerm" {
+  features {}
+}
+
 module "aws_resources" {
   source = "./aws"
 }

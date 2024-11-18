@@ -34,12 +34,13 @@ pull_code() {
     # Check if the repo directory already exists
     if [ -d "$repo_name" ]; then
         echo "Repository $repo_name already exists. Pulling the latest changes..."
-        cd /home/ubuntu/"$repo_name" || { echo "Failed to navigate to $repo_name"; exit 1; }
+        cd /tmp/"$repo_name" || { echo "Failed to navigate to $repo_name"; exit 1; }
         git pull "$repo_url" || { echo "Git pull failed"; exit 1; }
     else
         echo "Cloning the repository $repo_name..."
+        cd /tmp/
         git clone "$repo_url" || { echo "Git clone failed"; exit 1; }
-        cd /home/ubuntu/"$repo_name" || { echo "Failed to navigate to $repo_name"; exit 1; }
+        cd /tmp/"$repo_name" || { echo "Failed to navigate to $repo_name"; exit 1; }
     fi
 }
 
@@ -55,7 +56,7 @@ build_artifact() {
 
 tomcat_manager() {
 
-    sudo cp /home/ubuntu/"$repo_name"/target/*.war /opt/tomcat/webapps/
+    sudo cp /tmp/"$repo_name"/target/*.war /opt/tomcat/webapps/
     # Restart and check the status of the Tomcat service
     sudo systemctl restart tomcat
 }
@@ -67,7 +68,7 @@ clean_up() {
     repo_name=$(basename -s .git "$repo_url")
 
     #Back_up command to ensure artifact gets shipped to app server before cleaning
-    # sudo mv /home/ubuntu/"$repo_name"/target/*.war /opt/tomcat/webapps/ROOT.war
+    # sudo mv /tmp/"$repo_name"/target/*.war /opt/tomcat/webapps/ROOT.war
     sudo rm -rf ~/"$repo_name"
 }
 
