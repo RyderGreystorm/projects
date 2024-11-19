@@ -49,4 +49,18 @@ Follow these steps to provision the infrastructure and deploy the application:
 1. **Initialize Terraform**
    ```bash
    terraform init
+
+```bash
+    terraform fmt
+
+```bash
+    terrafrom validate
+
+```bash
+    terraform apply --auto-approve
 ```
+## Why This Project Matters
+This project demonstrates the power of automation and IaC by reducing manual configuration steps and ensuring consistency across multi-cloud environments. It also highlights secure practices like IP whitelisting and modularized deployment.
+
+Contact
+If you encounter issues or have questions, feel free to reach out. Collaboration and feedback are always welcome!
