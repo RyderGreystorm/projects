@@ -53,10 +53,8 @@ Follow these steps to provision the infrastructure and deploy the application:
 ```bash
     terraform fmt
 
-```bash
     terrafrom validate
 
-```bash
     terraform apply --auto-approve
 ```
 ## Why This Project Matters
