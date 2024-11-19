@@ -52,11 +52,10 @@ Follow these steps to provision the infrastructure and deploy the application:
 
    terraform fmt
 
-
     terrafrom validate
  
     terraform apply --auto-approve
-```
+
 ## Why This Project Matters
 This project demonstrates the power of automation and IaC by reducing manual configuration steps and ensuring consistency across multi-cloud environments. It also highlights secure practices like IP whitelisting and modularized deployment.
 
