@@ -50,11 +50,12 @@ Follow these steps to provision the infrastructure and deploy the application:
    ```bash
    terraform init
 
-```bash
-    terraform fmt
+   ```bash
+   terraform fmt
 
+   ```bash
     terrafrom validate
-
+   ```
     terraform apply --auto-approve
 ```
 ## Why This Project Matters
