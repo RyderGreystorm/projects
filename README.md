@@ -1,6 +1,6 @@
 # Projects Directory
 ## Overview
-Welcome to the Projects Directory, a curated collection of professional DevOps and Cloud Computing projects. Each subdirectory represents an individual project, showcasing practical implementations of DevOps practices, cloud architecture designs, and automation workflows. These projects are designed to highlight industry-level expertise in modern infrastructure and software development practices.
+Welcome to the Projects Directory, a curated collection of professional DevOps and Cloud Computing projects. Each subdirectory represents an individual project, showcasing practical implementations of DevOps practices, cloud architecture designs, and automation workflows. These projects are designed to highlight industry-level expertise in modern infrastructure and software development practices. This repo is for cloud and devops projects and to speed things up, I will not be writing the web application codes, but rather pipelines, security as code, complaince as code, infrastructre as code and other cloudOps and DevOps operations.
 
 ## Directory Structure
 
@@ -56,4 +56,4 @@ Each project in this directory includes:
   * AWS CLI / Azure CLI or other cloud provider tools
 * Environment: Access to a local development environment or a cloud account.
 
-The projects here may contain software code written by other developers which I used to build the artificats to be deployed on the infrastructure I have. If you are one of those and you do not find your name in the reference section of this repo, please visit my profile to find my contact and contact me asap.
+The projects here may contain software code written by other developers which I used to build the artificats to be deployed on the infrastructure I have. If you are one of those and you do not find your name in the reference section of the repo in which you found your code, please visit my profile to find my contact and contact me asap. 
