@@ -1,5 +1,7 @@
 # Multi-Cloud Project: Java Application Deployment on Apache Tomcat
-
+<div align="right">
+  <img src="https://github.com/RyderGreystorm/projects/blob/main/multi_cloud_tomcat_project/tomcar_IAAC.gif" alt="Coding Animation"/>
+</div>
 Welcome to this **multi-cloud project**, where a Java application is deployed to an **Apache Tomcat 9.0.65** web server using Infrastructure as Code (IaC). The project is designed to automate the entire process on both **AWS** and **Azure** with **zero manual UI interaction**. 
 
 ## Requirements
