@@ -1,8 +1,4 @@
 # Projects Directory
-<div align="right">
-  <img src="https://github.com/RyderGreystorm/projects/blob/main/multi_cloud_tomcat_project/tomcar_IAAC.gif" alt="Coding Animation"/>
-</div>
-
 ## Overview
 Welcome to the Projects Directory, a curated collection of professional DevOps and Cloud Computing projects. Each subdirectory represents an individual project, showcasing practical implementations of DevOps practices, cloud architecture designs, and automation workflows. These projects are designed to highlight industry-level expertise in modern infrastructure and software development practices. This repo is for cloud and devops projects and to speed things up, I will not be writing the web application codes, but rather pipelines, security as code, complaince as code, infrastructre as code and other cloudOps and DevOps operations.
 
