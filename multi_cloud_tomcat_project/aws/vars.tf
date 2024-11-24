@@ -41,3 +41,12 @@ variable "MY_IP" {
 variable "REPO_URL" {
   default = "https://github.com/jaiswaladi246/Petclinic.git"
 }
+
+# Variables
+variable "domain_name" {
+  description = "The domain name for your Route 53 hosted zone"
+  type        = string
+  default     = "my-domain.com" # Replace with your domain name
+}
+
+
