@@ -8,6 +8,7 @@ Before proceeding, ensure you have the following:
 - **Azure CLI** (configured with appropriate credentials)
 - **Active accounts on AWS and Azure**
 - **Apache Tomcat version 9.0.65** (installation is automated)
+- ** route53 Hosted Zone and Domain name
 
 ## Key Features
 - Fully automated installation and configuration of **Apache Tomcat 9.0.65** via the `installation.sh` script, located in the `shell_scripts` directory.
@@ -35,6 +36,7 @@ This project includes:
 - The `aws/provider` block uses a profile named `"terradmin"` for the AWS IAM user. 
   - If you have a different profile configured, replace `"terradmin"` with your profile name.
   - If no profile is set up, remove the profile line and leave only the region.
+  - Ensure you have a registred domain name else the Route53 will not work. Open **`aws/route53.tf`** and uncomment everything. Replace the domain name with your domain name. **NOTE. YOU CAN SIMPLY SKIP THIS BY LEAVING THE ROUTE53 CODE COMMENTED AND RUNNING EVERYTHING. THIS WILL RESULT IN YOU LAUNCHING THE INFRASTRUCTURE ON AWS AND AZURE WITHOUT YOU HAVING A UNIFIED LINK FOR THE TWO IP ADDRESSES** You will have to access the apps by visiting the ip public address of the instance from each provider
 
 ### Azure Configuration
 - Ensure your Azure CLI is authenticated, as Terraform interacts with Azure APIs to provision the required resources.
@@ -58,6 +60,11 @@ Follow these steps to provision the infrastructure and deploy the application:
 
 ## Why This Project Matters
 This project demonstrates the power of automation and IaC by reducing manual configuration steps and ensuring consistency across multi-cloud environments. It also highlights secure practices like IP whitelisting and modularized deployment.
+
+## How to View the Project Once it is Launched
+It will he running as a separate service in tomcat, so your url will look like **`http://53.23.25.211:8080/petclinic`**.
+If you replaced the  github link with another repo url, then you must replace `petclinc` with the name of your artifact.
+
 
 Contact
 If you encounter issues or have questions, feel free to reach out. Collaboration and feedback are always welcome!
