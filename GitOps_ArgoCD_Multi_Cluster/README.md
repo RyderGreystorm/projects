@@ -105,4 +105,4 @@ Detailed documentation and setup instructions are available on **[Medium](https:
 ## Author
 
 - Created by Godbless Biekro
-- Connect on [LinkedIn](https://www.linkedin.com/in/godbless-biekro-2289261ba/) and [Medium]([https://medium.com/@biekrogodbless](https://medium.com/@biekrogodbless/hub-and-spoke-architecture-project-with-argocd-an-elastic-kubernetes-project-by-godbless-biekro-a3512e1e5701) for more DevOps content.
+- Connect on [LinkedIn](https://www.linkedin.com/in/godbless-biekro-2289261ba/) and [Medium](https://medium.com/@biekrogodbless/hub-and-spoke-architecture-project-with-argocd-an-elastic-kubernetes-project-by-godbless-biekro-a3512e1e5701) for more DevOps content.
