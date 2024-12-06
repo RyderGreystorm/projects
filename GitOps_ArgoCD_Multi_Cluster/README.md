@@ -84,7 +84,7 @@ Use the ArgoCD UI or CLI to deploy Kubernetes manifests to the clusters. The man
 
 ## Documentation
 
-Detailed documentation and setup instructions are available on **[Medium]([https://medium.com/](https://medium.com/@biekrogodbless/hub-and-spoke-architecture-project-with-argocd-an-elastic-kubernetes-project-by-godbless-biekro-a3512e1e5701)**:  
+Detailed documentation and setup instructions are available on **[Medium](https://medium.com/@biekrogodbless/hub-and-spoke-architecture-project-with-argocd-an-elastic-kubernetes-project-by-godbless-biekro-a3512e1e5701)**:  
 - [01 Prerequisites](./docs/01_prerequisites.md)  
 - [02 Setting Up EKS Clusters](./docs/02_eks_setup.md)  
 - [03 Configuring ArgoCD](./docs/03_argocd_setup.md)  
