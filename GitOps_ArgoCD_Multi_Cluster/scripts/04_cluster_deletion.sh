@@ -1,9 +1,23 @@
 #!/bin/bash
 
 # Prompt the user for a number of spoke clusters Created
-echo -n "How many spoke clusters are did you create: "
+echo -n "How many spoke clusters are Did you create: "
 read number
 
+echo -n "What name is your hub cluster: "
+read hub_name
+
+echo -n "In which region are your resources in? [eg: us-east-1]: "
+read region
+
+echo -n "What is the name of the AWS IAM user that created this resource [enter profile name]: "
+read profile
+
+# Validate if input for number of cluster is a positive integer
+if ! [[ "$number" =~ ^[0-9]+$ ]]; then
+    echo "Please enter a valid positive number."
+    exit 1
+fi
 
 # Confirm the details before proceeding
 echo
