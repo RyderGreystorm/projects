@@ -19,6 +19,4 @@ Thumbs.db             # Windows specific metadata
 *.sublime-workspace   # Sublime Text workspace files
 *.sublime-project     # Sublime Text project files
 
-
-.github/workflows
 .gitignore
