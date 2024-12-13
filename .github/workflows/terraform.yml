@@ -47,7 +47,7 @@ jobs:
     needs: Setting-Up-Terraform
     steps:
       - name: Terraform Init
-        working-directory: microservice_mern_stack_eks_infrastructure/eks_cluster/
+        working-directory: ./microservice_mern_stack_eks_infrastructure/eks_cluster
         run: terraform init
 
   Terraform-Formatting-Validating:
@@ -55,11 +55,11 @@ jobs:
     needs: Terraform-Initializing
     steps:
       - name: Terraform Format
-        working-directory: microservice_mern_stack_eks_infrastructure/eks_cluster/
+        working-directory: ./microservice_mern_stack_eks_infrastructure/eks_cluster/
         run: terraform fmt
 
       - name: Terraform Validate
-        working-directory: microservice_mern_stack_eks_infrastructure/eks_cluster/
+        working-directory: ./microservice_mern_stack_eks_infrastructure/eks_cluster/
         run: terraform validate
 
   Terraform-Action:
@@ -68,15 +68,15 @@ jobs:
     steps:
       - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'plan' }}
-        working-directory: microservice_mern_stack_eks_infrastructure/eks_cluster/
+        working-directory: ./microservice_mern_stack_eks_infrastructure/eks_cluster/
         run: terraform plan -var-file=${{ github.event.inputs.tfvars_file }} -input=false
 
       - name: Terraform Apply
         if: ${{ github.event.inputs.action == 'apply' }}
-        working-directory: microservice_mern_stack_eks_infrastructure/eks_cluster/
+        working-directory: ./microservice_mern_stack_eks_infrastructure/eks_cluster/
         run: terraform apply -auto-approve -var-file=${{ github.event.inputs.tfvars_file }} -input=false
 
       - name: Terraform Destroy
         if: ${{ github.event.inputs.action == 'destroy' }}
-        working-directory: microservice_mern_stack_eks_infrastructure/eks_cluster/
+        working-directory: ./microservice_mern_stack_eks_infrastructure/eks_cluster/
         run: terraform destroy -auto-approve -var-file=${{ github.event.inputs.tfvars_file }} -input=false
