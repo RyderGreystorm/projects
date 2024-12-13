@@ -1,0 +1,23 @@
+# Terraform-specific files
+eks_cluster/.terraform.lock.hcl
+eks_cluster/.terraform/
+.terraform/
+.terraform.lock.hcl
+microservice_mern_stack_eks_infrastructure/eks_cluster/.terraform/providers/registry.terraform.io/hashicorp/aws/5.80.0/windows_amd64/terraform-provider-aws_v5.80.0_x5.exe
+
+
+# System files
+.DS_Store             # macOS specific metadata
+Thumbs.db             # Windows specific metadata
+*.log                 # Log files
+*.bak                 # Backup files
+
+# Editor/IDE configurations
+.vscode/              # Visual Studio Code settings
+.idea/                # IntelliJ IDEA settings
+*.swp                 # Vim swap files
+*.sublime-workspace   # Sublime Text workspace files
+*.sublime-project     # Sublime Text project files
+
+
+.github/workflows
