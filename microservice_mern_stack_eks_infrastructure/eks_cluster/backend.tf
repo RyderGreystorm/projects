@@ -1,6 +1,6 @@
 provider "aws" {
   region  = var.REGION
-  profile = "terradmin"
+  profile = "terradmin" 
 }
 
 terraform {
