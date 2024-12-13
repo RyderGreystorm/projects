@@ -21,3 +21,4 @@ Thumbs.db             # Windows specific metadata
 
 
 .github/workflows
+.gitignore
