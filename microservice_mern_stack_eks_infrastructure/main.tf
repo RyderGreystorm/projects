@@ -1,5 +1,5 @@
 module "esk" {
-  source = "../modules"
+  source = "./modules"
 
   #Project required
   spot_max_capacity = var.spot_max_capacity
