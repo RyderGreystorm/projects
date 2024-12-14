@@ -3,19 +3,21 @@ name: 'Terraform'
 on:
   workflow_dispatch:
     inputs:
+      action:
+        description: 'Select the Terraform action to execute'
+        type: choice
+        options:
+          - init
+          - validate
+          - plan
+          - apply
+          - destroy
+        required: true
+        default: 'plan'
       tfvars_file:
         description: 'Path to the .tfvars file'
         required: true
         default: 'terraform.tfvars'
-      action:
-        type: choice
-        description: 'Apply or Destroy'
-        options:
-        - plan
-        - apply
-        - destroy
-        required: true
-        default: 'apply'
 
 env:
   AWS_REGION: us-east-1
@@ -26,57 +28,39 @@ permissions:
   contents: read
 
 jobs:
-  CheckOut-Repo:
+  Terraform-Action:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Checkout the repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-  Setting-Up-Terraform:
-    runs-on: ubuntu-latest
-    needs: CheckOut-Repo
-    steps:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.10.1
 
-  Terraform-Initializing:
-    runs-on: ubuntu-latest
-    needs: Setting-Up-Terraform
-    steps:
       - name: Terraform Init
-        working-directory: /home/runner/work/projects/microservice_mern_stack_eks_infrastructure        
+        if: ${{ github.event.inputs.action == 'init' }}
+        working-directory: microservice_mern_stack_eks_infrastructure
         run: terraform init
 
-  Terraform-Formatting-Validating:
-    runs-on: ubuntu-latest
-    needs: Terraform-Initializing
-    steps:
-      - name: Terraform Format
-        working-directory: /home/runner/work/projects/microservice_mern_stack_eks_infrastructure
-        run: terraform fmt
-
       - name: Terraform Validate
-        working-directory: /home/runner/work/projects/microservice_mern_stack_eks_infrastructure
+        if: ${{ github.event.inputs.action == 'validate' }}
+        working-directory: microservice_mern_stack_eks_infrastructure
         run: terraform validate
 
-  Terraform-Action:
-    runs-on: ubuntu-latest
-    needs: Terraform-Formatting-Validating
-    steps:
       - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'plan' }}
-        working-directory: /home/runner/work/projects/microservice_mern_stack_eks_infrastructure
+        working-directory: microservice_mern_stack_eks_infrastructure
         run: terraform plan -var-file=${{ github.event.inputs.tfvars_file }} -input=false
 
       - name: Terraform Apply
         if: ${{ github.event.inputs.action == 'apply' }}
-        working-directory: /home/runner/work/projects/microservice_mern_stack_eks_infrastructure
+        working-directory: microservice_mern_stack_eks_infrastructure
         run: terraform apply -auto-approve -var-file=${{ github.event.inputs.tfvars_file }} -input=false
 
       - name: Terraform Destroy
         if: ${{ github.event.inputs.action == 'destroy' }}
-        working-directory: /home/runner/work/projects/microservice_mern_stack_eks_infrastructure
+        working-directory: microservice_mern_stack_eks_infrastructure
         run: terraform destroy -auto-approve -var-file=${{ github.event.inputs.tfvars_file }} -input=false
