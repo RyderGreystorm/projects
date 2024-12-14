@@ -46,6 +46,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: Setting-Up-Terraform
     steps:
+      - name: List Files After Init
+        working-directory: microservice_mern_stack_eks_infrastructure
+        run: ls -alFR
+
       - name: Terraform Init
         working-directory: microservice_mern_stack_eks_infrastructure        
         run: terraform init
